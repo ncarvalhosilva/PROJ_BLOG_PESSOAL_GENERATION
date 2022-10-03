@@ -1,6 +1,9 @@
 package com.generation.blogpessoal.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.generation.blogpessoal.model.Postagem;
@@ -13,4 +16,5 @@ public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 
 	//Estes 2 parâmetros são do tipo Java Generics (podem receber qqr tipo de Objeto <T, T>)
 	
+	public List <Postagem> findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo); //ignorecase é pra ignorar mauísculas e minusculas
 }
